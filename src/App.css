@@ -1,3 +1,30 @@
 #root {
   text-align: center;
 }
+
+
+.header {
+  border-width: 3%;
+  border-style: solid;
+  border-color: red;
+  padding: 1%;
+}
+
+
+.Nav {
+  border-width: 3%;
+  border-style: solid;
+  border-color: rgb(0, 51, 255);
+  padding: 1%;
+  
+}
+
+.articlesContainer {
+
+  border-width: 3%;
+  border-style: solid;
+  border-color: rgb(0, 255, 55);
+  padding: 1%;
+
+
+}
