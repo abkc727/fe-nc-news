@@ -2,11 +2,12 @@ import { useEffect, useState } from "react"
 import { ArticleCard } from "./ArticleCard"
 import { getArticles } from "../utils/api"
 
+
 export const ArticlesContainer = () => {
 
   const [articles, setArticles] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-
+ 
   useEffect(()=> {
 
     getArticles().then((articlesData)=> {
@@ -14,7 +15,6 @@ export const ArticlesContainer = () => {
         setIsLoading(false)
     })
 }, [])
-
 
   if(isLoading) {
 
@@ -33,6 +33,7 @@ export const ArticlesContainer = () => {
 
                 })}
             </ul>
+            
       
     </div>
 
@@ -40,4 +41,3 @@ export const ArticlesContainer = () => {
   )
     
    }
-
