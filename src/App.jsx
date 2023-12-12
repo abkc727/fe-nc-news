@@ -5,6 +5,7 @@ import { Nav } from "./components/Nav";
 import { ArticlesContainer } from "./components/ArticlesContainer";
 import { ArticlePage } from "./components/ArticlePage";
 
+
 function App() {
   return (
     <>
@@ -19,5 +20,4 @@ function App() {
 }
 
 export default App;
-
 
