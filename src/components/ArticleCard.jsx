@@ -1,25 +1,27 @@
-export const ArticleCard = (props) => {
-   
-    const {author, title, topic, votes, article_img_url} = props.article
+import { useNavigate } from "react-router-dom";
+import { HiNewspaper } from "react-icons/hi2";
+export const ArticleCard = ({ article }) => {
+  const navigate = useNavigate();
 
-    return (
-        <>
+  const { article_id, author, title, topic, votes, article_img_url } = article;
 
-        <li className="article">
-            <div className="article_content">
-            <h4>{title}</h4>
-            <p>Written by <b>{author}</b></p>
-            <p>Topic: {topic}</p>
-            <p>{votes} votes</p>
-            </div>
-            <img className = 'article_image' src={article_img_url} alt={title} />
-        </li>
-        
+  const handleSelectButton = () => {
+    navigate(`/article/${article_id}`);
+  };
 
-        
-
-
-        </>
-    )
-}
+  return (
+    <>
+      <li className="article" onClick={handleSelectButton}>
+        <div className="article_content">
+          <h4>{title}</h4>
+          <p>Written by <b>{author}</b></p>
+          <p>{votes} votes</p>
+          
+          <p><HiNewspaper /> {topic}</p>
+        </div>
+        <img className="article_image" src={article_img_url} alt={title} />
+      </li>
+    </>
+  );
+};
 
