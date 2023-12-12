@@ -55,10 +55,18 @@ ul {
   margin-bottom: 2%;
   display: flex;
   padding: 1%;
-  border: 1px solid rgb(255, 255, 255);
+  border-width: 1%;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
   border-radius: 10px;
   background-color: rgb(255, 216, 154);
   text-align: left;
+}
+
+.article:hover {
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgb(255, 199, 162);
+
 }
 
 .article_content {
