@@ -3,6 +3,7 @@ import "./App.css";
 import { Header } from "./components/Header";
 import { Nav } from "./components/Nav";
 import { ArticlesContainer } from "./components/ArticlesContainer";
+import { ArticlePage } from "./components/ArticlePage";
 
 function App() {
   return (
@@ -11,9 +12,12 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<ArticlesContainer />} />
+        <Route path="/article/:article_id" element={<ArticlePage />} />
       </Routes>
     </>
   );
 }
 
 export default App;
+
+
