@@ -14,3 +14,10 @@ export const getArticleById = (articleId) => {
     return response.data.article
   });
 };
+
+export const getCommentsByArticleId = (articleId) => {
+  const baseUrl = `https://aditya-nc-news.onrender.com/api/articles/${articleId}/comments`;
+  return axios.get(baseUrl).then((response) => {
+    return response.data.comments
+  });
+};

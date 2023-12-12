@@ -13,6 +13,9 @@ body {
   background-color: bisque;
   padding: 1%;
   border-radius: 10px;
+  border-width: 1%;
+  border-style: solid;
+  border-color:rgb(210, 171, 249);
 }
 
 .Nav {
@@ -21,8 +24,16 @@ body {
   border-radius: 10px;
   background-color: rgb(191, 179, 206);
   margin-top: 1%;
+  border-width: 1%;
+  border-style: solid;
+  border-color: rgb(210, 171, 249);
 }
 
+.Link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
 .articlesContainer {
   
   padding: 1%;
@@ -66,8 +77,10 @@ ul {
   border-color: rgb(214, 200, 45);
   padding: 2%;
   box-sizing: border-box;
+  margin-top: 1%;
   margin-left: 15%;
   margin-right: 15%;
+  border-radius: 10px;
 }
 
 .sub_contents {
@@ -87,6 +100,27 @@ ul {
   text-align: justify;
   margin-top: 2%;
 }
+
+.comments {
+  border-width: 3%;
+  border-style: solid;
+  padding: 1%;
+  border-radius: 10px;
+  background-color: rgba(254, 190, 190, 0.695);
+}
+
+
+.comment_box {
+  text-align: justify;
+  padding: 1%;
+  border-width: 1%;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  margin-bottom: 1%;
+  border-radius: 10px;
+  background-color: rgba(212, 212, 212, 0.695);
+}
+
 
 @media (min-width: 300px) {
   .article_page_img {
