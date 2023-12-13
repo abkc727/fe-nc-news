@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../utils/api";
 import { CommentCard } from "./CommentCard";
 import { Collapsible } from "./Collapsible";
+import { CommentAdder } from "./CommentAdder";
 
 export const Comments = ({ articleId }) => {
   const [comments, setComments] = useState([]);
@@ -19,6 +20,8 @@ export const Comments = ({ articleId }) => {
   }
 
   return (
+    <section>
+      <CommentAdder setComments = {setComments} />
     <div className="comments">
       <Collapsible descriptor="Comments">
         <ul className="article_box">
@@ -28,5 +31,6 @@ export const Comments = ({ articleId }) => {
         </ul>
       </Collapsible>
     </div>
+    </section>
   );
 };
