@@ -24,4 +24,3 @@ export const ArticleCard = ({ article }) => {
     </>
   );
 };
-
