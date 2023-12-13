@@ -5,9 +5,11 @@ export const CommentAdder = ({ setComments, articleId, setCommentCount}) => {
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
   const [success, setSuccess] = useState(null)
+  const [isformDisabled, setIsFormDisabled] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsFormDisabled(true)
     postComment(articleId, newComment).then((newCommentFromApi)=> {
         setNewComment("")
         setComments((currComments)=> {
@@ -18,9 +20,13 @@ export const CommentAdder = ({ setComments, articleId, setCommentCount}) => {
         })
         setErr(null)
         setSuccess('Comment added successfully!')
+        
     }).catch((err)=> {
         setErr('Something went wrong, please try again!');
         setSuccess(null)
+      }).finally(()=> {
+      setIsFormDisabled(false)
+
     })
     
   }
@@ -35,7 +41,7 @@ export const CommentAdder = ({ setComments, articleId, setCommentCount}) => {
       onChange={(e)=> setNewComment(e.target.value)}
       required
       ></textarea>
-      <button>Add</button>
+      <button disabled={isformDisabled}>Add</button>
 
       {err ? <p className="error">{err}</p> : null }
       {success ? <p className="success">{success}</p> : null }
