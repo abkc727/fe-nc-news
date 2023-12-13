@@ -7,6 +7,7 @@ export const CommentCard = ({ comment }) => {
           <p>{comment.votes} votes</p>
         </div>
         <p>{comment.body}</p>
+        <button>delete</button>
       </li>
     </>
   );
