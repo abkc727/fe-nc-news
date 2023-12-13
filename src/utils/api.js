@@ -21,3 +21,11 @@ export const getCommentsByArticleId = (articleId) => {
     return response.data.comments
   });
 };
+
+export const patchArticle = (articleId, incValue) => {
+  const baseUrl = `https://aditya-nc-news.onrender.com/api/articles/${articleId}`;
+  const patchData = { inc_votes: incValue }
+  return axios.patch(baseUrl, patchData).then((response) => {
+    return response.data.article
+  });
+};
