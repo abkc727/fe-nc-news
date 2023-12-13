@@ -128,6 +128,32 @@ ul {
   background-color: rgba(212, 212, 212, 0.695);
 }
 
+.NewComment {
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  
+}
+
+.NewComment button {
+  margin-top: 1%;
+  margin-bottom: 2% ;
+  align-self: flex-start;
+
+}
+
+.error {
+  font-weight: bold;
+  color: red;
+  
+  }
+
+.success {
+  font-weight: bold;
+  color: rgb(31, 126, 3);
+
+  }
 @media (min-width: 300px) {
   .article_page_img {
     width: 100%;

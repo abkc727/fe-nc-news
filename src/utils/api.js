@@ -21,3 +21,11 @@ export const getCommentsByArticleId = (articleId) => {
     return response.data.comments
   });
 };
+
+export const postComment = (articleId, commentBody) => {
+  const newComment = {username: 'tickle122', body: commentBody}
+  const baseUrl = `https://aditya-nc-news.onrender.com/api/articles/${articleId}/comments`;
+  return axios.post(baseUrl, newComment).then((response) => {
+    return response.data.comment
+  });
+};

@@ -9,13 +9,18 @@ export const ArticlePage = () => {
 
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [commentCount, setCommentCount] = useState(null)
 
   useEffect(() => {
     getArticleById(article_id).then((articleData) => {
       setArticle(articleData);
+      setCommentCount(articleData.comment_count);
       setIsLoading(false);
     });
   }, [article_id]);
+  
+
+
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -41,9 +46,9 @@ export const ArticlePage = () => {
       />
       <p className="article_body">{article.body}</p>
 
-      <h4>{article.comment_count} Comments</h4>
+      <h4>{commentCount} Comments</h4>
 
-      {article.comment_count > 0 && <Comments articleId={article.article_id} />}
+      {commentCount > 0 && <Comments articleId={article.article_id} setCommentCount = {setCommentCount} />}
     </div>
   );
 };

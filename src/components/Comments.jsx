@@ -4,7 +4,7 @@ import { CommentCard } from "./CommentCard";
 import { Collapsible } from "./Collapsible";
 import { CommentAdder } from "./CommentAdder";
 
-export const Comments = ({ articleId }) => {
+export const Comments = ({ articleId , setCommentCount}) => {
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -21,7 +21,7 @@ export const Comments = ({ articleId }) => {
 
   return (
     <section>
-      <CommentAdder setComments = {setComments} />
+      <CommentAdder setComments = {setComments} articleId={articleId} setCommentCount={setCommentCount}/>
     <div className="comments">
       <Collapsible descriptor="Comments">
         <ul className="article_box">
