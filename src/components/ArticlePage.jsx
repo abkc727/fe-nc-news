@@ -10,23 +10,25 @@ export const ArticlePage = () => {
   const { article_id } = useParams();
 
   const [article, setArticle] = useState({});
+  const [votes, setVotes] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
 
   useEffect(() => {
     getArticleById(article_id).then((articleData) => {
       setArticle(articleData);
+      setVotes(articleData.votes)
       setIsLoading(false);
     });
   }, [article_id]);
 
   const handleVote = (event, articleId) => {
-    patchArticle(articleId, event.currentTarget.value)
-    .then((updatedArticleData)=> {
-      const newArticle = {...article, votes : updatedArticleData.votes}
-      setArticle(newArticle)
-      setErr(null);
-    }).catch((err)=> {
+    const incValue = event.currentTarget.value === 'upvote' ? 1 : event.currentTarget.value === 'downvote' ? -1 : 0;
+    setVotes((prevVotes)=> prevVotes +incValue)
+    setErr(null);
+    patchArticle(articleId, incValue)
+    .catch((err)=> {
+      setVotes((prevVotes)=> prevVotes-incValue)
       setErr('Something went wrong, please try again!');
     })
   }
@@ -65,7 +67,7 @@ export const ArticlePage = () => {
       <div className="sub_contents">
 
         <p>
-          <b>{article.votes}</b> votes
+          <b>{votes}</b> votes
         </p>
         
 

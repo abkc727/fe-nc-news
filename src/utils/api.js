@@ -22,8 +22,7 @@ export const getCommentsByArticleId = (articleId) => {
   });
 };
 
-export const patchArticle = (articleId, value) => {
-  const incValue = value === 'upvote' ? 1 : value === 'downvote' ? -1 : 0;
+export const patchArticle = (articleId, incValue) => {
   const baseUrl = `https://aditya-nc-news.onrender.com/api/articles/${articleId}`;
   const patchData = { inc_votes: incValue }
   return axios.patch(baseUrl, patchData).then((response) => {
