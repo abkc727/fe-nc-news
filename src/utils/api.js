@@ -1,9 +1,10 @@
 import axios from "axios";
 
-export const getArticles = ({ topicName }) => {
+export const getArticles = ({ topicName }, sortValues) => {
+  console.log('here')
   const baseUrl = `https://aditya-nc-news.onrender.com/api/articles`;
   return axios
-    .get(baseUrl, { params: { topic: topicName } })
+    .get(baseUrl, { params: { topic: topicName, ...sortValues  } })
     .then((response) => {
       return response.data.articles;
     });
