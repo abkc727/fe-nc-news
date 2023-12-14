@@ -5,6 +5,9 @@ export const Nav = () => {
       <Link className='Link' to="/">
         <p>Articles</p>
       </Link>
+      <Link className='Link' to="/topics">
+        <p>Topics</p>
+      </Link>
     </nav>
   );
 };
