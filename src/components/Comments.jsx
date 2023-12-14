@@ -32,7 +32,7 @@ export const Comments = ({ articleId , setCommentCount}) => {
       {success ? <p className="success">{success}</p> : null }
         <ul className="article_box">
           {comments.map((comment) => {
-            return <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} setErr={setErr} setSuccess={setSuccess}/>;
+            return <CommentCard key={comment.comment_id} comment={comment} setComments={setComments} setErr={setErr} setSuccess={setSuccess} setCommentCount={setCommentCount}/>;
           })}
         </ul>
       </Collapsible>

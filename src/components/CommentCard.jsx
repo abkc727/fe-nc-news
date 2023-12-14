@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { deleteComment, getCommentsByArticleId } from "../utils/api";
-export const CommentCard = ({ comment, setComments, setErr, setSuccess }) => {
-  const username = 'happyamy2016'
+export const CommentCard = ({ comment, setComments, setErr, setSuccess, setCommentCount}) => {
+  const username = 'tickle122'
   const [isButtonDisabled, setIsButtonDisabled] = useState(false)
 
   
@@ -18,11 +18,15 @@ export const CommentCard = ({ comment, setComments, setErr, setSuccess }) => {
               setComments(updatedComments)
             })
         }
+        setCommentCount((currCommentCount)=> {
+          return currCommentCount-1
+      })
         setErr(null)
         setSuccess('Comment deleted successfully!')
       })
       .catch((err)=> {
         setErr('Something went wrong, please try again!');
+        
         setSuccess(null)
         
       })

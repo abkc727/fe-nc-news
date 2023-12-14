@@ -10,6 +10,7 @@ export const CommentAdder = ({ setComments, articleId, setCommentCount}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsFormDisabled(true)
+    
     postComment(articleId, newComment).then((newCommentFromApi)=> {
         setNewComment("")
         setComments((currComments)=> {
