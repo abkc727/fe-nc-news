@@ -29,3 +29,10 @@ export const patchArticle = (articleId, incValue) => {
     return response.data.article
   });
 };
+
+export const getTopics = () => {
+  const baseUrl = `https://aditya-nc-news.onrender.com/api/topics`;
+  return axios.get(baseUrl).then((response) => {
+    return response.data.topics;
+  });
+};

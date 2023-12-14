@@ -19,6 +19,7 @@ body {
 }
 
 .Nav {
+  display: flex;
   padding: 1%;
   text-align: left;
   border-radius: 10px;
@@ -27,14 +28,16 @@ body {
   border-width: 1%;
   border-style: solid;
   border-color: rgb(210, 171, 249);
+  
 }
 
 .Link {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  margin-right: 5%;
 }
-.articlesContainer {
+.element_container {
   
   padding: 1%;
 }
@@ -43,15 +46,15 @@ ul {
   list-style-type: none;
 }
 
-.article_box {
-  display: grid;
-  flex-direction: row;
+.container_box {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding: 1%;
 }
 
-.article {
+.box, .topicbox{
   margin-bottom: 2%;
   display: flex;
   padding: 1%;
@@ -61,8 +64,15 @@ ul {
   border-radius: 10px;
   background-color: rgb(255, 216, 154);
   text-align: left;
+  align-content: stretch;
+  
 }
 
+.topicbox {
+  flex-direction: column;
+  align-items: center;
+  
+}
 .article:hover {
   border: 1px solid rgb(255, 0, 0);
   background-color: rgb(255, 199, 162);

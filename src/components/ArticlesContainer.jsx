@@ -18,9 +18,9 @@ export const ArticlesContainer = () => {
   }
 
   return (
-    <div className="articlesContainer">
+    <div className="element_container">
       <h3>Articles</h3>
-      <ul className="article_box">
+      <ul className="container_box">
         {articles.map((article) => {
           return <ArticleCard key={article.article_id} article={article} />;
         })}

@@ -11,7 +11,7 @@ export const ArticleCard = ({ article }) => {
 
   return (
     <>
-      <li className="article" onClick={handleSelectButton}>
+      <li className="box" onClick={handleSelectButton}>
         <div className="article_content">
           <h4>{title}</h4>
           <p>Written by <b>{author}</b></p>
