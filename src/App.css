@@ -15,7 +15,7 @@ body {
   border-radius: 10px;
   border-width: 1%;
   border-style: solid;
-  border-color:rgb(210, 171, 249);
+  border-color: rgb(210, 171, 249);
 }
 
 .Nav {
@@ -28,7 +28,6 @@ body {
   border-width: 1%;
   border-style: solid;
   border-color: rgb(210, 171, 249);
-  
 }
 
 .Link {
@@ -38,8 +37,8 @@ body {
   margin-right: 5%;
 }
 .element_container {
-  
   padding: 1%;
+  
 }
 
 ul {
@@ -54,7 +53,8 @@ ul {
   padding: 1%;
 }
 
-.box, .topicbox{
+.box,
+.topicbox {
   margin-bottom: 2%;
   display: flex;
   padding: 1%;
@@ -65,13 +65,11 @@ ul {
   background-color: rgb(255, 216, 154);
   text-align: left;
   align-content: stretch;
-  
 }
 
 .topicbox {
   flex-direction: column;
   align-items: center;
-  
 }
 .article:hover {
   border: 1px solid rgb(255, 0, 0);
@@ -86,7 +84,6 @@ ul {
   width: 30%;
   height: auto;
 }
-
 
 .article_page {
   background-color: rgb(255, 216, 154);
@@ -117,7 +114,6 @@ ul {
   margin-top: 2%;
 }
 
-
 .comments {
   border-width: 3%;
   border-style: solid;
@@ -125,7 +121,6 @@ ul {
   border-radius: 10px;
   background-color: rgba(254, 190, 190, 0.695);
 }
-
 
 .comment_box {
   display: flex;
@@ -143,41 +138,33 @@ ul {
   align-self: flex-end;
 }
 
-
-
 .NewComment {
-
   display: flex;
   flex-direction: column;
   text-align: left;
-  
 }
 
 .NewComment button {
   margin-top: 1%;
-  margin-bottom: 2% ;
+  margin-bottom: 2%;
   align-self: flex-start;
-
 }
 
 .error {
   font-weight: bold;
   color: red;
-  
-  }
+}
 
 .success {
   font-weight: bold;
   color: rgb(31, 126, 3);
-
-  }
+}
 
 .vote {
   display: flex;
   font-weight: bold;
   align-items: center;
   justify-content: center;
-
 }
 
 .vote button {
@@ -185,28 +172,42 @@ ul {
 }
 
 .error {
-font-weight: bold;
-color: red;
-
+  font-weight: bold;
+  color: red;
 }
 
 .success {
   font-weight: bold;
   color: rgb(31, 126, 3);
+}
 
-  }
+.deleteButton {
+  border-radius: 7%;
+}
+.deleteButton:hover {
+  border-color: white;
+}
 
-  .deleteButton {
-    border-radius: 7%;
-  }
-  .deleteButton:hover {
-    border-color: white;
-  }
+.sort_bar {
+  display: flex;
+  padding: 1%;
+  border-width: 1%;
+  border-style: solid;
+  border-color: rgb(0, 0, 0);
+  border-radius: 4px;
+  background-color: rgba(212, 212, 212, 0.695);
+  text-align: left;
+
+
+}
+
+#dropdown{
+  margin-left: 2%;
+}
 
 @media (min-width: 300px) {
   .article_page_img {
     width: 100%;
     height: auto;
   }
-
 }
