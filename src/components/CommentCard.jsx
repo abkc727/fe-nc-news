@@ -1,12 +1,14 @@
-import { CiCircleRemove } from "react-icons/ci";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { deleteComment, getCommentsByArticleId } from "../utils/api";
 export const CommentCard = ({ comment, setComments, setErr, setSuccess }) => {
-  const username = 'jessjelly'
+  const username = 'happyamy2016'
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false)
+
   
 
   const handleDeleteButton = (e)=> {
     e.preventDefault()
+    setIsButtonDisabled(true)
     if(username===comment.author) {
       deleteComment(comment.comment_id)
       .then((rowCount)=> {
@@ -24,6 +26,9 @@ export const CommentCard = ({ comment, setComments, setErr, setSuccess }) => {
         setSuccess(null)
         
       })
+      .finally(()=> {
+        setIsButtonDisabled(false)
+      })
     }
   }
 
@@ -33,7 +38,7 @@ export const CommentCard = ({ comment, setComments, setErr, setSuccess }) => {
     
       <li className="comment_box">
       {username === comment.author && (
-          <button onClick={handleDeleteButton}>❌ Delete</button>
+          <button className='deleteButton' disabled={isButtonDisabled}onClick={handleDeleteButton}>Delete ❌</button>
         )}
         <div className="sub_contents">
           <p>@{comment.author}</p>

@@ -158,6 +158,13 @@ color: red;
 
   }
 
+  .deleteButton {
+    border-radius: 7%;
+  }
+  .deleteButton:hover {
+    border-color: white;
+  }
+
 @media (min-width: 300px) {
   .article_page_img {
     width: 100%;
