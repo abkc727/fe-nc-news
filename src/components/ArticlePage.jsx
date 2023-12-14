@@ -64,9 +64,9 @@ export const ArticlePage = () => {
       <p className="article_body">{article.body}</p>
       <div className="vote">
 
-      <h4>{commentCount} Comments</h4>
+      
 
-      {commentCount > 0 && <Comments articleId={article.article_id} setCommentCount = {setCommentCount} />}
+      
       <p>Vote:    </p>
       
       <button value='upvote' onClick={(event)=> handleVote(event, article_id)}><BsHandThumbsUp /></button>
@@ -80,10 +80,11 @@ export const ArticlePage = () => {
         </p>
         
 
-        <h4>{article.comment_count} Comments</h4>
+        <h4>{commentCount} Comments</h4>
       </div>
+        {commentCount > 0 && <Comments articleId={article.article_id} setCommentCount = {setCommentCount} />}
 
-      {article.comment_count > 0 && <Comments articleId={article.article_id} />}
+      
     </section>
 
   );
