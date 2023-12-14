@@ -12,15 +12,21 @@ export const ArticlePage = () => {
   const [article, setArticle] = useState({});
   const [votes, setVotes] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
+  const [commentCount, setCommentCount] = useState(null)
   const [err, setErr] = useState(null);
+
 
   useEffect(() => {
     getArticleById(article_id).then((articleData) => {
       setArticle(articleData);
+      setCommentCount(articleData.comment_count);
       setVotes(articleData.votes)
       setIsLoading(false);
     });
   }, [article_id]);
+  
+
+
 
   const handleVote = (event, articleId) => {
     const incValue = event.currentTarget.value === 'upvote' ? 1 : event.currentTarget.value === 'downvote' ? -1 : 0;
@@ -58,6 +64,9 @@ export const ArticlePage = () => {
       <p className="article_body">{article.body}</p>
       <div className="vote">
 
+      <h4>{commentCount} Comments</h4>
+
+      {commentCount > 0 && <Comments articleId={article.article_id} setCommentCount = {setCommentCount} />}
       <p>Vote:    </p>
       
       <button value='upvote' onClick={(event)=> handleVote(event, article_id)}><BsHandThumbsUp /></button>
@@ -76,6 +85,6 @@ export const ArticlePage = () => {
 
       {article.comment_count > 0 && <Comments articleId={article.article_id} />}
     </section>
-   
+
   );
 };
