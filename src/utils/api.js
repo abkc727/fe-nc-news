@@ -38,3 +38,11 @@ export const patchArticle = (articleId, incValue) => {
 
   });
 };
+
+export const deleteComment = (commentId) => {
+  const baseUrl = `https://aditya-nc-news.onrender.com/api/comments/${commentId}`;
+  return axios.delete(baseUrl).then((response)=> {
+    return response.rowCount
+  } )
+
+};

@@ -118,6 +118,8 @@ ul {
 
 
 .comment_box {
+  display: flex;
+  flex-direction: column;
   text-align: justify;
   padding: 1%;
   border-width: 1%;
@@ -127,6 +129,10 @@ ul {
   border-radius: 10px;
   background-color: rgba(212, 212, 212, 0.695);
 }
+.comment_box button {
+  align-self: flex-end;
+}
+
 
 
 .NewComment {
@@ -173,6 +179,19 @@ font-weight: bold;
 color: red;
 
 }
+
+.success {
+  font-weight: bold;
+  color: rgb(31, 126, 3);
+
+  }
+
+  .deleteButton {
+    border-radius: 7%;
+  }
+  .deleteButton:hover {
+    border-color: white;
+  }
 
 @media (min-width: 300px) {
   .article_page_img {
