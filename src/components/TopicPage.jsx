@@ -1,15 +1,12 @@
-import { useState } from "react"
+import { useParams } from "react-router-dom"
+import { ArticlesContainer } from "./ArticlesContainer"
 
 export const TopicPage = ()=> {
-
-    //render to articlecontainer
     
-
+    const topicName = useParams().topic
     return(
         <>
-        <h4>
-
-        </h4>
+        <ArticlesContainer topicName={topicName}/>
         </>
     )
 }
