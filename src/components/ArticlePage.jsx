@@ -5,46 +5,57 @@ import { HiNewspaper } from "react-icons/hi2";
 import { Comments } from "./Comments";
 import { BsHandThumbsUp } from "react-icons/bs";
 import { BsHandThumbsDown } from "react-icons/bs";
+import { Error } from "./Error";
 
 export const ArticlePage = () => {
   const { article_id } = useParams();
 
   const [article, setArticle] = useState({});
-  const [votes, setVotes] = useState(null)
+  const [votes, setVotes] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [commentCount, setCommentCount] = useState(null)
+  const [commentCount, setCommentCount] = useState(null);
   const [err, setErr] = useState(null);
-
+  const [apiError, setApiError] = useState(null)
 
   useEffect(() => {
-    getArticleById(article_id).then((articleData) => {
-      setArticle(articleData);
-      setCommentCount(articleData.comment_count);
-      setVotes(articleData.votes)
-      setIsLoading(false);
-    });
+    getArticleById(article_id)
+      .then((articleData) => {
+        setArticle(articleData);
+        setCommentCount(articleData.comment_count);
+        setVotes(articleData.votes);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setApiError(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [article_id]);
-  
-
-
 
   const handleVote = (event, articleId) => {
-    const incValue = event.currentTarget.value === 'upvote' ? 1 : event.currentTarget.value === 'downvote' ? -1 : 0;
-    setVotes((prevVotes)=> prevVotes +incValue)
+    const incValue =
+      event.currentTarget.value === "upvote"
+        ? 1
+        : event.currentTarget.value === "downvote"
+        ? -1
+        : 0;
+    setVotes((prevVotes) => prevVotes + incValue);
     setErr(null);
-    patchArticle(articleId, incValue)
-    .catch((err)=> {
-      setVotes((prevVotes)=> prevVotes-incValue)
-      setErr('Something went wrong, please try again!');
-    })
-  }
-
+    patchArticle(articleId, incValue).catch((err) => {
+      setVotes((prevVotes) => prevVotes - incValue);
+      setErr("Something went wrong, please try again!");
+    });
+  };
 
   if (isLoading) {
     return <p>Loading...</p>;
+  } else if (apiError) {
+
+    return <Error message={`${apiError.message}:   ${apiError.response.data.msg}`} />;
   }
   return (
-    
     <section className="article_page">
       <h2>{article.title}</h2>
       <div className="sub_contents">
@@ -63,29 +74,35 @@ export const ArticlePage = () => {
       />
       <p className="article_body">{article.body}</p>
       <div className="vote">
+        <p>Vote: </p>
 
-      
-
-      
-      <p>Vote:    </p>
-      
-      <button value='upvote' onClick={(event)=> handleVote(event, article_id)}><BsHandThumbsUp /></button>
-      <button value='downvote' onClick={(event)=> handleVote(event, article_id)}><BsHandThumbsDown /></button>
+        <button
+          value="upvote"
+          onClick={(event) => handleVote(event, article_id)}
+        >
+          <BsHandThumbsUp />
+        </button>
+        <button
+          value="downvote"
+          onClick={(event) => handleVote(event, article_id)}
+        >
+          <BsHandThumbsDown />
+        </button>
       </div>
-      {err ? <p className="error">{err}</p> : null}  
+      {err ? <p className="error">{err}</p> : null}
       <div className="sub_contents">
-
         <p>
           <b>{votes}</b> votes
         </p>
-        
 
         <h4>{commentCount} Comments</h4>
       </div>
-        {commentCount > 0 && <Comments articleId={article.article_id} setCommentCount = {setCommentCount} />}
-
-      
+      {commentCount > 0 && (
+        <Comments
+          articleId={article.article_id}
+          setCommentCount={setCommentCount}
+        />
+      )}
     </section>
-
   );
 };
